@@ -1,0 +1,380 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Arthur (Chi-Wei Lee) | Personal Website</title>
+
+  <!-- Tailwind (CDN) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root { color-scheme: dark; }
+    body { font-family: Inter, "Noto Sans TC", system-ui, -apple-system, Segoe UI, Roboto, sans-serif; }
+    .glass { background: rgba(255,255,255,.06); backdrop-filter: blur(10px); }
+    .ring-soft { box-shadow: 0 0 0 1px rgba(255,255,255,.08) inset; }
+    .grad {
+      background:
+        radial-gradient(900px 500px at 15% 10%, rgba(59,130,246,.25), transparent 60%),
+        radial-gradient(900px 500px at 90% 25%, rgba(168,85,247,.22), transparent 60%),
+        radial-gradient(900px 500px at 55% 95%, rgba(34,197,94,.12), transparent 60%),
+        #0b1020;
+    }
+    .anchor { scroll-margin-top: 96px; }
+  </style>
+</head>
+
+<body class="grad text-zinc-100">
+  <!-- Top bar -->
+  <header class="sticky top-0 z-50 border-b border-white/10 bg-black/20 backdrop-blur">
+    <div class="mx-auto max-w-6xl px-4 py-3 flex items-center justify-between">
+      <a href="#" class="font-semibold tracking-tight">Arthur · Chi-Wei Lee</a>
+      <nav class="hidden md:flex gap-6 text-sm text-zinc-300">
+        <a class="hover:text-white" href="#about">About</a>
+        <a class="hover:text-white" href="#research">Research</a>
+        <a class="hover:text-white" href="#projects">Projects</a>
+        <a class="hover:text-white" href="#publications">Publications</a>
+        <a class="hover:text-white" href="#awards">Awards</a>
+        <a class="hover:text-white" href="#contact">Contact</a>
+      </nav>
+      <a href="#contact" class="md:hidden text-sm rounded-lg px-3 py-2 glass ring-soft hover:bg-white/10">Contact</a>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="mx-auto max-w-6xl px-4 pt-12 pb-8">
+    <div class="grid md:grid-cols-[1.2fr_.8fr] gap-8 items-center">
+      <div class="space-y-5">
+        <p class="inline-flex items-center gap-2 text-xs px-3 py-1 rounded-full glass ring-soft text-zinc-200">
+          NTHU · Physics × EECS (AI Track) · CV / ML / Generative AI
+        </p>
+
+        <h1 class="text-3xl md:text-5xl font-bold tracking-tight leading-tight">
+          Hi, I’m <span class="text-white">Arthur</span> (Chi-Wei Lee).<br/>
+          I build <span class="text-blue-200">computer vision</span> & <span class="text-purple-200">generative models</span>.
+        </h1>
+
+        <p class="text-zinc-200 leading-relaxed max-w-2xl">
+          國立清華大學（NTHU）物理系 × 電資院學士班（AI Track）大四學生。
+          目前於中研院 CITI 擔任 part-time RA，研究擴散模型驅動的動態美學 QR code（兼顧美觀與可掃描性）。
+          具國際競賽與跨域軟硬整合經驗，目標持續深化 CV / Generative AI 研究並與國際研究者合作。
+        </p>
+
+        <div class="flex flex-wrap gap-3 pt-2">
+          <a class="rounded-xl px-4 py-2 glass ring-soft hover:bg-white/10" href="#projects">See Projects</a>
+          <a class="rounded-xl px-4 py-2 bg-white text-black font-medium hover:bg-zinc-100" href="#contact">Get in Touch</a>
+          <a class="rounded-xl px-4 py-2 glass ring-soft hover:bg-white/10" href="#publications">Publications</a>
+        </div>
+
+        <div class="flex flex-wrap gap-3 text-sm text-zinc-300 pt-2">
+          <span class="rounded-lg px-3 py-1 glass ring-soft">Diffusion</span>
+          <span class="rounded-lg px-3 py-1 glass ring-soft">Anomaly Detection</span>
+          <span class="rounded-lg px-3 py-1 glass ring-soft">Medical Imaging</span>
+          <span class="rounded-lg px-3 py-1 glass ring-soft">Hardware–Software Integration</span>
+        </div>
+      </div>
+
+      <div class="glass ring-soft rounded-3xl p-5">
+        <div class="flex items-center gap-4">
+          <img
+            src="YOUR_PHOTO_URL"
+            alt="Arthur photo"
+            class="w-20 h-20 rounded-2xl object-cover ring-1 ring-white/15"
+            onerror="this.style.display='none'; document.getElementById('photoFallback').style.display='flex';"
+          />
+          <div id="photoFallback" class="hidden w-20 h-20 rounded-2xl items-center justify-center bg-white/10 ring-1 ring-white/15">
+            <span class="text-sm text-zinc-300">Photo</span>
+          </div>
+
+          <div class="min-w-0">
+            <div class="font-semibold text-lg">Arthur (Chi-Wei Lee)</div>
+            <div class="text-sm text-zinc-300">NTHU · Physics × EECS (AI Track)</div>
+            <div class="text-sm text-zinc-300">Academia Sinica CITI · Part-time RA</div>
+          </div>
+        </div>
+
+        <div class="mt-5 grid grid-cols-2 gap-3 text-sm">
+          <div class="rounded-2xl p-4 bg-white/5 ring-1 ring-white/10">
+            <div class="text-zinc-300">Email</div>
+            <a class="break-all hover:text-white" href="mailto:levi74108520963@gmail.com">levi74108520963@gmail.com</a>
+          </div>
+          <div class="rounded-2xl p-4 bg-white/5 ring-1 ring-white/10">
+            <div class="text-zinc-300">Phone</div>
+            <a class="hover:text-white" href="tel:+886968708385">(+886) 968-708-385</a>
+          </div>
+
+          <!-- Replace these with your real links -->
+          <a class="rounded-2xl p-4 bg-white/5 ring-1 ring-white/10 hover:bg-white/10" href="https://github.com/" target="_blank" rel="noreferrer">
+            <div class="text-zinc-300">GitHub</div>
+            <div class="font-medium">github.com/…</div>
+          </a>
+          <a class="rounded-2xl p-4 bg-white/5 ring-1 ring-white/10 hover:bg-white/10" href="#" target="_blank" rel="noreferrer">
+            <div class="text-zinc-300">Google Scholar</div>
+            <div class="font-medium">Profile</div>
+          </a>
+        </div>
+
+        <div class="mt-5 text-xs text-zinc-400 leading-relaxed">
+          Highlights: NSF HDR ML Challenge Overall 2nd (600+ teams), iGEM Gold Medal, Mei-Chu Hackathon 1st.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section id="about" class="anchor mx-auto max-w-6xl px-4 py-10">
+    <div class="grid lg:grid-cols-3 gap-6">
+      <div class="lg:col-span-2 glass ring-soft rounded-3xl p-7">
+        <h2 class="text-xl font-semibold">About</h2>
+        <p class="mt-3 text-zinc-200 leading-relaxed">
+          我是 Arthur（Chi-Wei Lee），清華大學物理系與電資院 AI 學程雙主修。
+          研究興趣聚焦在 <span class="text-white">Computer Vision</span>、<span class="text-white">Machine Learning</span> 與 <span class="text-white">Generative AI</span>。
+          目前於中研院 CITI 參與 diffusion-based dynamic QR code generation（美學最佳化 + 掃描穩健性）。
+        </p>
+        <p class="mt-3 text-zinc-200 leading-relaxed">
+          我擅長把「研究想法 → 可跑的系統 → 可展示的結果」快速落地：曾帶隊完成異常檢測模型整合並受邀至 AAAI Workshop 發表，
+          也做過硬體與機器學習整合（Arduino）完成自動化診斷裝置展示。
+        </p>
+
+        <div class="mt-6 grid sm:grid-cols-3 gap-3">
+          <div class="rounded-2xl p-4 bg-white/5 ring-1 ring-white/10">
+            <div class="text-xs text-zinc-400">Focus</div>
+            <div class="font-medium">CV · GenAI · Robust ML</div>
+          </div>
+          <div class="rounded-2xl p-4 bg-white/5 ring-1 ring-white/10">
+            <div class="text-xs text-zinc-400">Strength</div>
+            <div class="font-medium">Fast prototyping & teamwork</div>
+          </div>
+          <div class="rounded-2xl p-4 bg-white/5 ring-1 ring-white/10">
+            <div class="text-xs text-zinc-400">Goal</div>
+            <div class="font-medium">Publish & collaborate globally</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="glass ring-soft rounded-3xl p-7">
+        <h3 class="text-lg font-semibold">Quick Facts</h3>
+        <ul class="mt-4 space-y-3 text-sm text-zinc-200">
+          <li class="flex gap-2"><span class="text-zinc-400">School:</span> National Tsing Hua University</li>
+          <li class="flex gap-2"><span class="text-zinc-400">Major:</span> Physics & EECS (AI Track)</li>
+          <li class="flex gap-2"><span class="text-zinc-400">Current:</span> Academia Sinica CITI · Part-time RA</li>
+          <li class="flex gap-2"><span class="text-zinc-400">Interest:</span> Diffusion, anomaly detection, medical imaging</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Research -->
+  <section id="research" class="anchor mx-auto max-w-6xl px-4 py-10">
+    <div class="glass ring-soft rounded-3xl p-7">
+      <div class="flex items-end justify-between gap-4 flex-wrap">
+        <h2 class="text-xl font-semibold">Research & Experience</h2>
+        <div class="text-sm text-zinc-300">Selected highlights</div>
+      </div>
+
+      <div class="mt-6 grid md:grid-cols-2 gap-4">
+        <div class="rounded-2xl p-5 bg-white/5 ring-1 ring-white/10">
+          <div class="flex items-center justify-between gap-3">
+            <div class="font-semibold">Academia Sinica · CITI</div>
+            <div class="text-xs text-zinc-400">Jul 2025 – Present</div>
+          </div>
+          <div class="mt-2 text-zinc-200">
+            Diffusion-based dynamic QR code generation (aesthetic optimization + scan robustness).
+          </div>
+          <div class="mt-3 text-xs text-zinc-400">
+            Role: team lead / researcher · Focus: controllable generation & robustness.
+          </div>
+        </div>
+
+        <div class="rounded-2xl p-5 bg-white/5 ring-1 ring-white/10">
+          <div class="flex items-center justify-between gap-3">
+            <div class="font-semibold">NSF HDR ML Challenge</div>
+            <div class="text-xs text-zinc-400">Dec 2024 – Feb 2025</div>
+          </div>
+          <div class="mt-2 text-zinc-200">
+            Led a 6-member team; anomaly detection for gravitational wave & hybrid butterfly images.
+            Achieved <span class="text-white font-medium">Overall 2nd worldwide</span> among 600+ teams; presented at AAAI Workshop (Philadelphia).
+          </div>
+          <div class="mt-3 text-xs text-zinc-400">
+            Models: Autoencoder, CNN/LSTM/Transformer variants, diffusion-based ideas.
+          </div>
+        </div>
+
+        <div class="rounded-2xl p-5 bg-white/5 ring-1 ring-white/10">
+          <div class="flex items-center justify-between gap-3">
+            <div class="font-semibold">Mei-Chu Hackathon (Maker Track)</div>
+            <div class="text-xs text-zinc-400">2025</div>
+          </div>
+          <div class="mt-2 text-zinc-200">
+            Built a smart healthcare system integrating wearable watch + mobile app to analyze dementia patients’ walking trajectories for safety monitoring.
+            Result: <span class="text-white font-medium">1st Place</span>.
+          </div>
+        </div>
+
+        <div class="rounded-2xl p-5 bg-white/5 ring-1 ring-white/10">
+          <div class="flex items-center justify-between gap-3">
+            <div class="font-semibold">iGEM 2023 (NTHU-Taiwan)</div>
+            <div class="text-xs text-zinc-400">Dec 2022 – Nov 2023</div>
+          </div>
+          <div class="mt-2 text-zinc-200">
+            Dry Lab leader; automated identification system for colorectal cancer screening reagents with ML,
+            and hardware–software integration on Arduino for automated temperature control, cooling, and precise reagent dispensing.
+            Result: <span class="text-white font-medium">Gold Medal</span>; presented in Paris.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects -->
+  <section id="projects" class="anchor mx-auto max-w-6xl px-4 py-10">
+    <div class="flex items-end justify-between flex-wrap gap-4">
+      <h2 class="text-xl font-semibold">Projects</h2>
+      <div class="text-sm text-zinc-300">Links you can update anytime</div>
+    </div>
+
+    <div class="mt-6 grid md:grid-cols-3 gap-4">
+      <a class="group rounded-3xl p-6 glass ring-soft hover:bg-white/10 transition" href="#" target="_blank" rel="noreferrer">
+        <div class="text-sm text-zinc-300">Generative AI</div>
+        <div class="mt-1 font-semibold">Dynamic Aesthetic QR (Diffusion)</div>
+        <p class="mt-2 text-sm text-zinc-200 leading-relaxed">
+          Controllable generation balancing aesthetics and scanning robustness.
+        </p>
+        <div class="mt-4 text-xs text-zinc-400 group-hover:text-zinc-200">Add repo / demo link →</div>
+      </a>
+
+      <a class="group rounded-3xl p-6 glass ring-soft hover:bg-white/10 transition"
+         href="https://github.com/Arthur031221/X-Ray.git" target="_blank" rel="noreferrer">
+        <div class="text-sm text-zinc-300">Medical Imaging</div>
+        <div class="mt-1 font-semibold">Chest X-ray Classification Study</div>
+        <p class="mt-2 text-sm text-zinc-200 leading-relaxed">
+          Comparing Xception & DenseNet121 on different demographics; robustness & generalization.
+        </p>
+        <div class="mt-4 text-xs text-zinc-400 group-hover:text-zinc-200">Open GitHub →</div>
+      </a>
+
+      <a class="group rounded-3xl p-6 glass ring-soft hover:bg-white/10 transition"
+         href="https://2023.igem.wiki/nthu-taiwan/hardware" target="_blank" rel="noreferrer">
+        <div class="text-sm text-zinc-300">Hardware × ML</div>
+        <div class="mt-1 font-semibold">iGEM Hardware Page</div>
+        <p class="mt-2 text-sm text-zinc-200 leading-relaxed">
+          Arduino-based automated diagnostic device with ML-assisted identification and precise control.
+        </p>
+        <div class="mt-4 text-xs text-zinc-400 group-hover:text-zinc-200">View page →</div>
+      </a>
+    </div>
+  </section>
+
+  <!-- Publications -->
+  <section id="publications" class="anchor mx-auto max-w-6xl px-4 py-10">
+    <div class="glass ring-soft rounded-3xl p-7">
+      <h2 class="text-xl font-semibold">Publications & Posters</h2>
+
+      <div class="mt-6 space-y-4">
+        <div class="rounded-2xl p-5 bg-white/5 ring-1 ring-white/10">
+          <div class="font-semibold">Journal Paper (2024)</div>
+          <div class="mt-1 text-zinc-200 text-sm leading-relaxed">
+            Tsai, X.-H., Yeh, A. A.-C., Lu, C.-H., Chou, S.-Y., Wang, S.-W., Lee, C-W., & Lee, P.-H. (2024).
+            <span class="italic">Classifying Vibration Modes Generated by the Michelson Interferometer Using Machine Learning Methods</span>.
+            Journal of Modern Physics, 15(12). DOI: 10.4236/jmp.2024.1512087
+          </div>
+        </div>
+
+        <div class="rounded-2xl p-5 bg-white/5 ring-1 ring-white/10">
+          <div class="font-semibold">Conference Poster (TAAI 2025, Accepted)</div>
+          <div class="mt-1 text-zinc-200 text-sm leading-relaxed">
+            <span class="font-medium">MatrixQR:</span> Matrix-Guided Refinement for Decoupling Reliability Control from Creative Edits in QR Code Generation.
+            Chi-Wei Lee, Yen-Hung Hsueh, JR An Guo, Jia-Wei Liao, Pin-Yen Chiu, Jun-Cheng Chen.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Awards -->
+  <section id="awards" class="anchor mx-auto max-w-6xl px-4 py-10">
+    <div class="grid lg:grid-cols-3 gap-6">
+      <div class="lg:col-span-2 glass ring-soft rounded-3xl p-7">
+        <h2 class="text-xl font-semibold">Awards & Achievements</h2>
+
+        <div class="mt-6 space-y-3 text-sm text-zinc-200">
+          <div class="rounded-2xl p-4 bg-white/5 ring-1 ring-white/10">
+            <div class="font-semibold">NSF HDR ML Challenge — Overall 2nd Place Worldwide</div>
+            <div class="text-zinc-300">600+ teams · invited talk at AAAI Workshop (Philadelphia)</div>
+          </div>
+
+          <div class="rounded-2xl p-4 bg-white/5 ring-1 ring-white/10">
+            <div class="font-semibold">iGEM 2023 — Gold Medal</div>
+            <div class="text-zinc-300">Dry Lab leader · ML + Arduino automated diagnostic device</div>
+          </div>
+
+          <div class="rounded-2xl p-4 bg-white/5 ring-1 ring-white/10">
+            <div class="font-semibold">Mei-Chu Hackathon 2025 (Maker Track) — 1st Place</div>
+            <div class="text-zinc-300">Wearable + app trajectory modeling for safety monitoring</div>
+          </div>
+
+          <div class="rounded-2xl p-4 bg-white/5 ring-1 ring-white/10">
+            <div class="font-semibold">Academic performance highlights</div>
+            <div class="text-zinc-300">
+              GPA 4.1 (Rank 1/72); GPA 3.94 (Rank 6/75); other awards (TISF Physics & Astronomy).
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="glass ring-soft rounded-3xl p-7">
+        <h3 class="text-lg font-semibold">CV PDFs</h3>
+        <p class="mt-3 text-sm text-zinc-200 leading-relaxed">
+          你可以把 PDF 放進 GitHub repo 或 Google Drive，再把連結貼到這裡。
+        </p>
+        <div class="mt-4 space-y-3 text-sm">
+          <a class="block rounded-2xl px-4 py-3 bg-white/5 ring-1 ring-white/10 hover:bg-white/10" href="#" target="_blank" rel="noreferrer">
+            CV (English) — add link
+          </a>
+          <a class="block rounded-2xl px-4 py-3 bg-white/5 ring-1 ring-white/10 hover:bg-white/10" href="#" target="_blank" rel="noreferrer">
+            CV / Autobiography (中文) — add link
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="anchor mx-auto max-w-6xl px-4 py-12">
+    <div class="glass ring-soft rounded-3xl p-8">
+      <h2 class="text-xl font-semibold">Contact</h2>
+      <p class="mt-3 text-zinc-200 leading-relaxed">
+        想合作、想找我聊研究/實習/專案，都可以直接寄信給我。
+      </p>
+
+      <div class="mt-6 flex flex-wrap gap-3">
+        <a class="rounded-xl px-4 py-2 bg-white text-black font-medium hover:bg-zinc-100" href="mailto:levi74108520963@gmail.com">
+          Email me
+        </a>
+        <a class="rounded-xl px-4 py-2 glass ring-soft hover:bg-white/10" href="tel:+886968708385">
+          Call
+        </a>
+        <a class="rounded-xl px-4 py-2 glass ring-soft hover:bg-white/10" href="#" target="_blank" rel="noreferrer">
+          GitHub
+        </a>
+        <a class="rounded-xl px-4 py-2 glass ring-soft hover:bg-white/10" href="#" target="_blank" rel="noreferrer">
+          LinkedIn
+        </a>
+      </div>
+
+      <div class="mt-8 text-xs text-zinc-400">
+        © <span id="y"></span> Arthur (Chi-Wei Lee). Built with a single HTML file.
+      </div>
+    </div>
+  </section>
+
+  <script>
+    document.getElementById("y").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
