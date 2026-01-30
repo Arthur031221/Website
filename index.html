@@ -29,7 +29,7 @@
     .site-bg {
       position: absolute;
       inset: 0;
-      z-index: 0;
+      z-index: -1;
       background-image: url("S__16670722.jpg");
       background-repeat: no-repeat;
       background-position: top center;
@@ -44,8 +44,8 @@
 </head>
 
 <body class="grad text-zinc-100">
-  <div class="site-bg" aria-hidden="true"></div>
   <div class="page-content">
+  <div class="site-bg" aria-hidden="true"></div>
   <!-- Top bar -->
   <header class="sticky top-0 z-50 border-b border-white/10 bg-black/20 backdrop-blur">
     <div class="mx-auto max-w-6xl px-4 py-3 flex items-center justify-between">
