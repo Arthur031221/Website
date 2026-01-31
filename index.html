@@ -24,12 +24,13 @@
       position: relative;
       background: transparent;
       overflow-x: hidden;
+      isolation: isolate;
     }
     /* Background photo layer (fit viewport width, keep aspect ratio) */
     .site-bg {
       position: absolute;
       inset: 0;
-      z-index: -1;
+      z-index: 0;
       background-image: url("S__16670722.jpg");
       background-repeat: no-repeat;
       background-position: top center;
@@ -40,12 +41,15 @@
     }
     .page-content { position: relative; z-index: 1; }
     .anchor { scroll-margin-top: 96px; }
+    summary::-webkit-details-marker { display: none; }
+    details > summary { list-style: none; }
+    details[open] summary .chev { transform: rotate(180deg); }
   </style>
 </head>
 
 <body class="grad text-zinc-100">
-  <div class="page-content">
   <div class="site-bg" aria-hidden="true"></div>
+  <div class="page-content">
   <!-- Top bar -->
   <header class="sticky top-0 z-50 border-b border-white/10 bg-black/20 backdrop-blur">
     <div class="mx-auto max-w-6xl px-4 py-3 flex items-center justify-between">
@@ -53,6 +57,7 @@
       <nav class="hidden md:flex gap-6 text-sm text-zinc-300">
         <a class="hover:text-white" href="#about">About</a>
         <a class="hover:text-white" href="#research">Research</a>
+        <a class="hover:text-white" href="#timeline">Timeline</a>
         <a class="hover:text-white" href="#projects">Projects</a>
         <a class="hover:text-white" href="#publications">Publications</a>
         <a class="hover:text-white" href="#awards">Awards</a>
@@ -83,6 +88,7 @@
 
         <div class="flex flex-wrap gap-3 pt-2">
           <a class="rounded-xl px-4 py-2 glass ring-soft hover:bg-white/10" href="#projects">See Projects</a>
+          <a class="rounded-xl px-4 py-2 glass ring-soft hover:bg-white/10" href="#timeline">Timeline</a>
           <a class="rounded-xl px-4 py-2 bg-white text-black font-medium hover:bg-zinc-100" href="#contact">Get in Touch</a>
           <a class="rounded-xl px-4 py-2 glass ring-soft hover:bg-white/10" href="#publications">Publications</a>
         </div>
@@ -124,10 +130,9 @@
             <a class="hover:text-white" href="tel:+886968708385">(+886) 968-708-385</a>
           </div>
 
-          <!-- Replace these with your real links -->
-          <a class="rounded-2xl p-4 bg-white/5 ring-1 ring-white/10 hover:bg-white/10" href="https://github.com/" target="_blank" rel="noreferrer">
+          <a class="rounded-2xl p-4 bg-white/5 ring-1 ring-white/10 hover:bg-white/10" href="https://github.com/Arthur031221" target="_blank" rel="noreferrer">
             <div class="text-zinc-300">GitHub</div>
-            <div class="font-medium">github.com/…</div>
+            <div class="font-medium">github.com/Arthur031221</div>
           </a>
           <a class="rounded-2xl p-4 bg-white/5 ring-1 ring-white/10 hover:bg-white/10" href="#" target="_blank" rel="noreferrer">
             <div class="text-zinc-300">Google Scholar</div>
@@ -149,12 +154,12 @@
         <h2 class="text-xl font-semibold">About</h2>
         <p class="mt-3 text-zinc-200 leading-relaxed">
           I’m Arthur (Chi-Wei Lee), double majoring in Physics and the Interdisciplinary Program of EECS (AI Track) at National Tsing Hua University.
-          My research interests focus on <span class="text-white">Computer Vision</span>, <span class="text-white">Machine Learning</span>, and <span class="text-white">Generative AI</span>.
-          I am currently involved in diffusion-based dynamic QR code generation at Academia Sinica CITI (aesthetic optimization + scan robustness).
+          My research interests focus on <span class="text-white">Computer Vision</span>, <span class="text-white">Machine Learning</span>, and <span class="text-white">Generative AI</span>—especially probabilistic modeling, uncertainty-aware control, and robustness under distribution shift.
+          I’m currently a part-time Research Assistant at Academia Sinica CITI, leading a diffusion-based dynamic QR code generation project (aesthetic optimization + scan reliability).
         </p>
         <p class="mt-3 text-zinc-200 leading-relaxed">
-          I’m good at turning “research ideas → runnable systems → demo-ready results” quickly: I’ve led an anomaly-detection model integration project and was invited to present at an AAAI Workshop,
-          and I’ve also built hardware–machine learning integrations (Arduino) to demonstrate an automated diagnostic device.
+          I’m good at turning “research ideas → runnable systems → demo-ready results” quickly. I led a 6-person team to win <span class="text-white font-medium">2nd place overall</span> in the NSF HDR ML Challenge (600+ teams) and presented at an AAAI-25 Workshop in Philadelphia.
+          I also served as Dry Lab leader for iGEM 2023 (Gold Medal), and I enjoy building end-to-end systems that combine modeling, evaluation, and (when needed) hardware.
         </p>
 
         <div class="mt-6 grid sm:grid-cols-3 gap-3">
@@ -179,7 +184,7 @@
           <li class="flex gap-2"><span class="text-zinc-400">School:</span> National Tsing Hua University</li>
           <li class="flex gap-2"><span class="text-zinc-400">Major:</span> Physics & EECS (AI Track)</li>
           <li class="flex gap-2"><span class="text-zinc-400">Current:</span> Academia Sinica CITI · Part-time RA</li>
-          <li class="flex gap-2"><span class="text-zinc-400">Interest:</span> Diffusion, anomaly detection, medical imaging</li>
+          <li class="flex gap-2"><span class="text-zinc-400">Interest:</span> Diffusion, uncertainty & robustness, medical imaging</li>
         </ul>
       </div>
     </div>
@@ -242,6 +247,401 @@
             and hardware–software integration on Arduino for automated temperature control, cooling, and precise reagent dispensing.
             Result: <span class="text-white font-medium">Gold Medal</span>; presented in Paris.
           </div>
+        </div>
+
+        <div class="rounded-2xl p-5 bg-white/5 ring-1 ring-white/10">
+          <div class="flex items-center justify-between gap-3">
+            <div class="font-semibold">NSF HDR ML Challenge 2026 (Climate Prediction Track)</div>
+            <div class="text-xs text-zinc-400">2026</div>
+          </div>
+          <div class="mt-2 text-zinc-200">
+            Attention-based deep learning with specialized preprocessing for drought prediction; focusing on out-of-distribution generalization.
+            Result: <span class="text-white font-medium">3rd Place (Taiwan Region)</span>; continuing global participation.
+          </div>
+        </div>
+
+        <div class="rounded-2xl p-5 bg-white/5 ring-1 ring-white/10">
+          <div class="flex items-center justify-between gap-3">
+            <div class="font-semibold">Medical Imaging Research (Chest X-ray)</div>
+            <div class="text-xs text-zinc-400">Jan 2024 – Present</div>
+          </div>
+          <div class="mt-2 text-zinc-200">
+            Studying robustness and generalization across demographics and long-tailed settings; explored attention transfer and subgroup generalization for multi-disease classification.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Timeline -->
+  <section id="timeline" class="anchor py-10">
+    <div class="glass ring-soft w-full rounded-none md:rounded-3xl py-10">
+      <div class="mx-auto max-w-6xl px-4">
+        <div class="flex items-end justify-between gap-4 flex-wrap">
+          <h2 class="text-xl font-semibold">Timeline</h2>
+          <div class="text-sm text-zinc-300">Newest → oldest · click to expand</div>
+        </div>
+
+        <div class="mt-6 space-y-4">
+          <!-- CITI -->
+          <details class="rounded-3xl bg-white/5 ring-1 ring-white/10 p-6">
+            <summary class="cursor-pointer select-none">
+              <div class="flex items-start justify-between gap-4">
+                <div class="min-w-0">
+                  <div class="font-semibold text-white">Academia Sinica · CITI — Part-time Research Assistant (Team Lead)</div>
+                  <div class="mt-1 text-sm text-zinc-300">Jul 2025 – Present · Diffusion-based dynamic aesthetic QR codes</div>
+                </div>
+                <svg class="chev w-5 h-5 shrink-0 text-zinc-300 transition-transform duration-200" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                  <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 0 1 1.06.02L10 11.17l3.71-3.94a.75.75 0 1 1 1.08 1.04l-4.25 4.5a.75.75 0 0 1-1.08 0l-4.25-4.5a.75.75 0 0 1 .02-1.06Z" clip-rule="evenodd" />
+                </svg>
+              </div>
+            </summary>
+
+            <div class="mt-4 border-t border-white/10 pt-4">
+              <div class="grid lg:grid-cols-[1.2fr_.8fr] gap-6">
+                <div class="text-sm text-zinc-200 leading-relaxed">
+                  <div class="font-medium text-white">What I did</div>
+                  <ul class="mt-2 space-y-1 text-zinc-200">
+                    <li>Led a small team building a diffusion-based pipeline for <span class="text-white">dynamic aesthetic QR code generation</span>.</li>
+                    <li>Worked on controllable trade-offs between <span class="text-white">visual quality</span> and <span class="text-white">scan reliability</span> under heterogeneous uncertainty.</li>
+                    <li>Explored uncertainty-aware guidance ideas inspired by recent work on denoiser covariance estimation.</li>
+                  </ul>
+                </div>
+                <div class="text-sm text-zinc-300">
+                  <div class="font-medium text-white">Notes</div>
+                  <div class="mt-2 text-zinc-200 leading-relaxed">
+                    Ongoing research direction; preparing a full paper for submission (targeting venues such as ECCV 2026).
+                  </div>
+                </div>
+              </div>
+
+              <div class="mt-6">
+                <div class="text-sm font-medium text-white">心得（中文）</div>
+                <div class="mt-2 text-sm text-zinc-200 leading-relaxed whitespace-pre-line">
+這段經歷讓我第一次真正以「研究與交付」的節奏在跑專案：從問題定義、實驗設計、到把想法落成可重現的 pipeline。也因為 QR code 同時要求美觀與可掃描，我開始更深刻地理解「可靠性」在生成模型裡是可以被系統性地建模與控制的。
+                </div>
+
+                <div class="mt-4 text-sm font-medium text-white">Reflection (English)</div>
+                <div class="mt-2 text-sm text-zinc-200 leading-relaxed whitespace-pre-line">
+This experience was my first time running a project with a true “research + delivery” cadence—from problem definition and experiment design to turning ideas into a reproducible pipeline. Because QR codes must be both aesthetically pleasing and reliably scannable, I started to internalize that “reliability” in generative models is something we can model and control systematically.
+                </div>
+              </div>
+            </div>
+          </details>
+
+          <!-- TAAI -->
+          <details class="rounded-3xl bg-white/5 ring-1 ring-white/10 p-6">
+            <summary class="cursor-pointer select-none">
+              <div class="flex items-start justify-between gap-4">
+                <div class="min-w-0">
+                  <div class="font-semibold text-white">TAAI 2025 — Poster (Accepted): MatrixQR</div>
+                  <div class="mt-1 text-sm text-zinc-300">Dec 2025 · Extended abstract · Full paper in preparation</div>
+                </div>
+                <svg class="chev w-5 h-5 shrink-0 text-zinc-300 transition-transform duration-200" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                  <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 0 1 1.06.02L10 11.17l3.71-3.94a.75.75 0 1 1 1.08 1.04l-4.25 4.5a.75.75 0 0 1-1.08 0l-4.25-4.5a.75.75 0 0 1 .02-1.06Z" clip-rule="evenodd" />
+                </svg>
+              </div>
+            </summary>
+
+            <div class="mt-4 border-t border-white/10 pt-4 text-sm text-zinc-200 leading-relaxed">
+              <div class="font-medium text-white">Summary</div>
+              <div class="mt-2">
+                MatrixQR proposes a matrix-guided refinement strategy to decouple reliability control from creative edits in QR code generation.
+              </div>
+              <div class="mt-4 text-sm font-medium text-white">心得（中文）</div>
+              <div class="mt-2 whitespace-pre-line">
+把研究寫成可被別人理解的論文（哪怕是 extended abstract）本身就是一次「重新檢驗」：哪些地方只是直覺？哪些地方有足夠的證據？這次經驗也讓我更重視 ablation 與可重現性。
+              </div>
+              <div class="mt-4 text-sm font-medium text-white">Reflection (English)</div>
+              <div class="mt-2 whitespace-pre-line">
+Turning research into a paper—even an extended abstract—is a form of “re-auditing” the work: what is merely intuition, and what is supported by evidence? This experience also made me value ablations and reproducibility more than ever.
+              </div>
+            </div>
+          </details>
+
+          <!-- NSF 2026 -->
+          <details class="rounded-3xl bg-white/5 ring-1 ring-white/10 p-6">
+            <summary class="cursor-pointer select-none">
+              <div class="flex items-start justify-between gap-4">
+                <div class="min-w-0">
+                  <div class="font-semibold text-white">NSF HDR ML Challenge 2026 — Climate Prediction Track</div>
+                  <div class="mt-1 text-sm text-zinc-300">2026 · 3rd place (Taiwan region) · continuing global participation</div>
+                </div>
+                <svg class="chev w-5 h-5 shrink-0 text-zinc-300 transition-transform duration-200" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                  <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 0 1 1.06.02L10 11.17l3.71-3.94a.75.75 0 1 1 1.08 1.04l-4.25 4.5a.75.75 0 0 1-1.08 0l-4.25-4.5a.75.75 0 0 1 .02-1.06Z" clip-rule="evenodd" />
+                </svg>
+              </div>
+            </summary>
+
+            <div class="mt-4 border-t border-white/10 pt-4 text-sm text-zinc-200 leading-relaxed">
+              <div class="font-medium text-white">Highlights</div>
+              <ul class="mt-2 space-y-1">
+                <li>Built attention-based deep learning models with specialized preprocessing for drought prediction from beetle images.</li>
+                <li>Focused on improving out-of-distribution generalization under real-world distribution shift.</li>
+              </ul>
+              <div class="mt-4 text-sm font-medium text-white">心得（中文）</div>
+              <div class="mt-2 whitespace-pre-line">
+這次題目讓我再次體會「資料分佈」的重要性：不只是把模型做大就會更好，而是要先理解資料生成機制、偏差來源，然後把特徵與評估設計做對。
+              </div>
+              <div class="mt-4 text-sm font-medium text-white">Reflection (English)</div>
+              <div class="mt-2 whitespace-pre-line">
+This track reminded me how much distribution matters: it’s not that bigger models automatically win, but that we must understand how the data is generated, where the biases come from, and then design the right features and evaluation strategy.
+              </div>
+            </div>
+          </details>
+
+          <!-- Mei-Chu -->
+          <details class="rounded-3xl bg-white/5 ring-1 ring-white/10 p-6">
+            <summary class="cursor-pointer select-none">
+              <div class="flex items-start justify-between gap-4">
+                <div class="min-w-0">
+                  <div class="font-semibold text-white">Mei-Chu Hackathon 2025 (Maker Track) — 1st Place</div>
+                  <div class="mt-1 text-sm text-zinc-300">2025 · Wearable + mobile app · Healthcare trajectory modeling</div>
+                </div>
+                <svg class="chev w-5 h-5 shrink-0 text-zinc-300 transition-transform duration-200" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                  <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 0 1 1.06.02L10 11.17l3.71-3.94a.75.75 0 1 1 1.08 1.04l-4.25 4.5a.75.75 0 0 1-1.08 0l-4.25-4.5a.75.75 0 0 1 .02-1.06Z" clip-rule="evenodd" />
+                </svg>
+              </div>
+            </summary>
+
+            <div class="mt-4 border-t border-white/10 pt-4 text-sm text-zinc-200 leading-relaxed">
+              <div class="font-medium text-white">What we built</div>
+              <ul class="mt-2 space-y-1">
+                <li>Integrated a wearable watch and a mobile app to capture and analyze walking trajectories.</li>
+                <li>Modeled dementia patients’ movement patterns for safety monitoring and alerts.</li>
+              </ul>
+              <div class="mt-4 text-sm font-medium text-white">心得（中文）</div>
+              <div class="mt-2 whitespace-pre-line">
+黑客松最大的收穫是「用有限時間做出可被評審一眼看懂的 demo」。把系統端到端接起來、把故事說清楚，常常比再多加一個模型更關鍵。
+              </div>
+              <div class="mt-4 text-sm font-medium text-white">Reflection (English)</div>
+              <div class="mt-2 whitespace-pre-line">
+My biggest takeaway from hackathons is learning how to ship a demo that judges can understand instantly. Connecting the system end-to-end and telling a clear story is often more important than adding yet another model.
+              </div>
+            </div>
+          </details>
+
+          <!-- NSF 2025 -->
+          <details class="rounded-3xl bg-white/5 ring-1 ring-white/10 p-6">
+            <summary class="cursor-pointer select-none">
+              <div class="flex items-start justify-between gap-4">
+                <div class="min-w-0">
+                  <div class="font-semibold text-white">2025 U.S. NSF HDR ML Challenge — Overall 2nd Place Worldwide</div>
+                  <div class="mt-1 text-sm text-zinc-300">Dec 2024 – Feb 2025 · Invited talk at AAAI-25 Workshop (Philadelphia)</div>
+                </div>
+                <svg class="chev w-5 h-5 shrink-0 text-zinc-300 transition-transform duration-200" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                  <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 0 1 1.06.02L10 11.17l3.71-3.94a.75.75 0 1 1 1.08 1.04l-4.25 4.5a.75.75 0 0 1-1.08 0l-4.25-4.5a.75.75 0 0 1 .02-1.06Z" clip-rule="evenodd" />
+                </svg>
+              </div>
+            </summary>
+
+            <div class="mt-4 border-t border-white/10 pt-4">
+              <div class="grid lg:grid-cols-[1.2fr_.8fr] gap-6">
+                <div class="text-sm text-zinc-200 leading-relaxed">
+                  <div class="font-medium text-white">Highlights</div>
+                  <ul class="mt-2 space-y-1">
+                    <li>Led a 6-member team (“20iterations”) across multiple anomaly-detection tasks (gravitational waves, hybrid butterflies, sea level).</li>
+                    <li>Developed and iterated on autoencoder and generative approaches; designed ablations and adapted to domain shifts under online evaluation.</li>
+                    <li>Ranked <span class="text-white">2nd overall</span> among 600+ teams worldwide; invited to present at an AAAI-25 Workshop in Philadelphia.</li>
+                  </ul>
+                </div>
+
+                <div>
+                  <div class="text-sm font-medium text-white">Photos</div>
+                  <div class="mt-3 grid grid-cols-2 gap-3">
+                    <img class="h-32 w-full rounded-2xl object-cover ring-1 ring-white/10" src="NSF0.jpg" alt="AAAI-25 welcome sign photo" loading="lazy">
+                    <img class="h-32 w-full rounded-2xl object-cover ring-1 ring-white/10" src="NSF2.jpg" alt="Workshop presentation photo" loading="lazy">
+                    <img class="h-32 w-full rounded-2xl object-cover ring-1 ring-white/10 col-span-2" src="NSF1.jpg" alt="Group photo at AAAI workshop" loading="lazy">
+                  </div>
+                </div>
+              </div>
+
+              <div class="mt-6">
+                <div class="text-sm font-medium text-white">心得（中文）</div>
+                <div class="mt-2 text-sm text-zinc-200 leading-relaxed whitespace-pre-line">
+2025 NSF HDR ML Challenge 國際異常檢測黑客松挑戰賽 🇺🇸》
+
+📍 Philadelphia, USA
+🗓️ 02.28 – 03.09
+
+-
+美國 —— 一個我一直很想去的國家，隔著太平洋不知道什麼時候才能真正踏上這片土地，但就在一場不到一個月就截止，且幾乎不可能獲得優勝的競賽中，隨著凌晨收到的一封來自美國的郵件，這一天居然就這樣提早來了，讓我前往這只存在我想像中的世界。
+
+NSF HDR ML Challenge 異常檢測黑客松，一場來自全球數百支隊伍參與的競賽，比賽的核心目標是透過機器學習的方法解決來自不同領域的異常任務：Anomalous gravitational wave signals（尋找宇宙中未知的重力波來源）、Butterfly hybrid detection （辨識突變與混種的蝴蝶品種）、Detecting sea level rise anomalous （在氣候變遷背景下，預測海平面上升的異常情況）當初看到說明簡章時，幾乎是衝著優勝隊伍可以被贊助受邀參與在費城舉辦的AAAI-25這一句話決定報名，抱著一絲優勝的希望開始拉著朋友一起參加，沒想到這看似幾乎不可能的機會，竟在兩個月後成真，得到重力波及總積分的第二名🥈帶我們飛往美國，為在清華的第三年寫下不可思議的篇章。為了搶下總積分第一名，我們投入了所有的賽事，我們的隊名 —— 「20iterations」，20 次迭代，正如其名，報名時距離提交截止只剩 20 天，開會的頻率只能用「天」來計算，3 天一小咪、5 天一大咪，常常一討論就開到半夜，甚至出國、過年也不放過；電腦不能用就改用平板，平板不行就用手機，不知道在 Colab 上燒了幾百個運算單元🤣
+
+每次開會，絕對會聽到
+「欸咦等一下🫷讓我想一下🤔」
+「我覺得你說得很有道理，但是…」
+「這次不可能錯了吧⋯⋯」
+「真的沒有任何理由了，如果再是 0 那我也真的…」
+「欸咦等一下…」
+老實說，這幾句話在這一個月內，沒有 100 次也有幾十次了 😂
+
+這趟紐約與費城之旅，真的很神奇。
+體驗了連續叫三次的Uber、在凌晨的費城街頭當起了無殼流浪漢、走進 UPenn 校園、觀戰NBA勇士對 76 人、在美術館前模仿洛基、在 Terminal Market 裡喝著熱量爆表的奶昔、時不時聞著街頭飄散的大麻味、還意外碰上川普的抗議現場。AAAI 的兩天裡，從 Agent 到 Quantum ML，見識了世界前沿的研究方向，也讓我重新思考未來可以投入的研究領域，然後看一堆台灣人硬要用英文溝通（真的很好笑😂，BTW我們還是優勝隊伍中唯一的大學組。接著我們抵達紐約，吃遍 Shake Shack 漢堡、煙燻牛肉三明治、塔可、龍蝦大餐，也在自由女神、華爾街銅牛、布魯克林大橋和中央公園留下足跡，時代廣場從大雨走到晴天，在 Top of the Rock 俯瞰夜晚的紐約，也唱了無數次的 I Want It That Way……
+
+這趟如夢般的旅程，最想感謝的莫過於另外五位隊友。黑洞組最全能的鎮育與最王牌的嘉丞，沒有鎮育，許多關鍵的討論都無法延續，許多卡關的時刻也得不到解答，更不會有20iterations ，沒有嘉丞的CNN我們無法踏上美國的旅程；潮汐組最強的沂竣和點子最多的子辰，要不是題目沒有亂搞，我相信以潮汐組的成果算是模型設計裡面最縝密的，也最符合挑戰賽的宗旨，然後沂峻沒能去美國真的好可惜🥲；蝴蝶組最挺的安楷，不只是最難的題目，而且從一開始就獨自扛起整組的重任，一路走來真的辛苦你了。或許我們沒有創造出全新的算法模型，或許只是幸運地剛好契合了測資，或許我們真正投注最多心力的不是建模，而是對規則的拆解與思辨，但即使如此，我依然深深享受每一次的推敲與突破，在每一個以為走到盡頭的時刻，總能在最後關頭迸現新的靈感與希望，不只是為了更高的成績，而是我們對真理的執著……
+
+謝謝你們在寒假願意接下這場幾乎沒有勝算的挑戰，謝謝你們願意放下休息、在無數個爆肝深夜裡大家一起堅持到最後。從報名那刻只剩 20 天，到最後走到了費城，我們一步一步走過來，把一個看似不可能的夢想，一起變成了真實。
+
+時間悄然流逝，時代匆匆更迭，那些曾一起經歷的日夜已化為過去，但卻也成為我心中永恆的記憶與光。
+-
+
+#20iterations
+                </div>
+
+                <div class="mt-4 text-sm font-medium text-white">Reflection (English)</div>
+                <div class="mt-2 text-sm text-zinc-200 leading-relaxed whitespace-pre-line">
+2025 NSF HDR ML Challenge (International Anomaly Detection Hackathon) 🇺🇸》
+
+📍 Philadelphia, USA
+🗓️ 02.28 – 03.09
+
+-
+The United States— a country I had always wanted to visit. Across the Pacific, I never knew when I would truly set foot on this land. Yet, through a competition that had less than a month before the deadline—and felt almost impossible to win—an email that arrived in the middle of the night suddenly made it real. That day came earlier than I ever imagined, taking me into a world that had existed only in my mind.
+
+The NSF HDR ML Challenge is a global anomaly-detection hackathon with hundreds of teams. Its core goal is to tackle anomaly problems from different domains using machine learning: anomalous gravitational wave signals (searching for unknown sources in the universe), butterfly hybrid detection (identifying mutations and hybrid species), and detecting anomalous sea level rise (forecasting anomalies under climate change). When I first read the rules, I was almost entirely drawn by one sentence: winning teams would be sponsored and invited to AAAI-25 in Philadelphia. We signed up with a small hope—then, two months later, that “impossible” chance became reality. We placed 2nd overall 🥈 and earned a trip to the U.S., writing an unbelievable chapter in my third year at NTHU.
+
+To chase the overall championship, we went all-in. Our team name—“20iterations”—said everything: there were only 20 days from registration to submission. Meetings were counted in days: a “small meow” every 3 days, a “big meow” every 5 days. Discussions often ran past midnight, even during travel and Lunar New Year. When the laptop failed, we used a tablet; when the tablet failed, we used a phone. I have no idea how many Colab compute units we burned through.
+
+In every meeting, you would definitely hear:
+“Wait—hold on 🫷 let me think 🤔”
+“You’re totally right, but…”
+“This time it can’t be wrong… right?”
+“There’s literally no reason—if it’s still 0, I’m going to…”
+“Wait… hold on…”
+Honestly, in that one month, I heard these lines not 100 times, but at least dozens 😂
+
+The New York + Philadelphia trip was surreal: calling Uber three times in a row, becoming “homeless wanderers” on Philly streets at dawn, walking through UPenn, watching the Warriors vs. 76ers, imitating Rocky at the museum, drinking a calorie-bomb milkshake at Reading Terminal Market, occasionally catching the smell of weed in the air, and even bumping into a protest related to Trump. During the two days at AAAI, from Agents to Quantum ML, I saw frontier research directions and rethought what I want to pursue next. (And watching Taiwanese people insist on speaking English was genuinely hilarious—BTW, we were the only undergraduate team among the winners.)
+
+Then we arrived in New York: Shake Shack, pastrami sandwiches, tacos, lobster feasts—and we left footprints at the Statue of Liberty, the Charging Bull, the Brooklyn Bridge, and Central Park. Times Square went from pouring rain to sunshine; we watched NYC at night from Top of the Rock; and we sang “I Want It That Way” countless times…
+
+Above all, I want to thank my five teammates. Without them, there would be no “20iterations,” and there would be no trip to the U.S. Maybe we didn’t invent a brand-new algorithm; maybe we were lucky that our approach fit the dataset. Maybe our biggest effort wasn’t modeling, but dissecting the rules and thinking through the evaluation. Even so, I truly enjoyed every round of reasoning and every breakthrough—every moment when hope reappeared at the last minute. Not only for a higher score, but for our persistence toward truth.
+
+Thank you for taking on a challenge that seemed unwinnable during winter break. Thank you for giving up rest and holding on together through countless exhausting nights. From “20 days left” at registration to standing in Philadelphia, we walked step by step and turned an impossible dream into reality.
+
+Time flows quietly, and eras change quickly. Those days and nights have become the past—yet they remain an eternal memory and light in my heart.
+-
+
+#20iterations
+                </div>
+              </div>
+            </div>
+          </details>
+
+          <!-- Journal paper -->
+          <details class="rounded-3xl bg-white/5 ring-1 ring-white/10 p-6">
+            <summary class="cursor-pointer select-none">
+              <div class="flex items-start justify-between gap-4">
+                <div class="min-w-0">
+                  <div class="font-semibold text-white">Journal of Modern Physics (2024) — Michelson Interferometer Vibration Classification</div>
+                  <div class="mt-1 text-sm text-zinc-300">Nov 2024 · Machine learning for physical experimental signal analysis</div>
+                </div>
+                <svg class="chev w-5 h-5 shrink-0 text-zinc-300 transition-transform duration-200" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                  <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 0 1 1.06.02L10 11.17l3.71-3.94a.75.75 0 1 1 1.08 1.04l-4.25 4.5a.75.75 0 0 1-1.08 0l-4.25-4.5a.75.75 0 0 1 .02-1.06Z" clip-rule="evenodd" />
+                </svg>
+              </div>
+            </summary>
+
+            <div class="mt-4 border-t border-white/10 pt-4 text-sm text-zinc-200 leading-relaxed">
+              <div class="font-medium text-white">What I contributed</div>
+              <ul class="mt-2 space-y-1">
+                <li>Co-authored a peer-reviewed journal paper; revised and polished academic English across the manuscript.</li>
+                <li>Helped write and refine physics-related theoretical sections for clarity and consistency.</li>
+              </ul>
+              <div class="mt-4 text-sm font-medium text-white">心得（中文）</div>
+              <div class="mt-2 whitespace-pre-line">
+把一篇文章打磨到可以投進期刊，最花時間的往往不是「跑出結果」那一刻，而是把前後邏輯、符號與敘事全部對齊。這次經驗也讓我更重視寫作與表達本身就是研究的一部分。
+              </div>
+              <div class="mt-4 text-sm font-medium text-white">Reflection (English)</div>
+              <div class="mt-2 whitespace-pre-line">
+Polishing a paper to a journal-ready level often takes more time than the moment you first “get results.” The real work is aligning the logic, notation, and narrative end-to-end. This experience taught me that writing and communication are core parts of research—not an afterthought.
+              </div>
+            </div>
+          </details>
+
+          <!-- iGEM -->
+          <details class="rounded-3xl bg-white/5 ring-1 ring-white/10 p-6">
+            <summary class="cursor-pointer select-none">
+              <div class="flex items-start justify-between gap-4">
+                <div class="min-w-0">
+                  <div class="font-semibold text-white">iGEM 2023 (NTHU-Taiwan) — Gold Medal</div>
+                  <div class="mt-1 text-sm text-zinc-300">Dec 2022 – Nov 2023 · Paris, France · Dry Lab leader + hardware integration</div>
+                </div>
+                <svg class="chev w-5 h-5 shrink-0 text-zinc-300 transition-transform duration-200" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                  <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 0 1 1.06.02L10 11.17l3.71-3.94a.75.75 0 1 1 1.08 1.04l-4.25 4.5a.75.75 0 0 1-1.08 0l-4.25-4.5a.75.75 0 0 1 .02-1.06Z" clip-rule="evenodd" />
+                </svg>
+              </div>
+            </summary>
+
+            <div class="mt-4 border-t border-white/10 pt-4">
+              <div class="grid lg:grid-cols-[1.2fr_.8fr] gap-6">
+                <div class="text-sm text-zinc-200 leading-relaxed">
+                  <div class="font-medium text-white">Highlights</div>
+                  <ul class="mt-2 space-y-1">
+                    <li>Dry Lab leader; built an automated identification system for colorectal cancer screening reagents using machine learning.</li>
+                    <li>Led digital circuit design and Arduino-based hardware–software integration for automated temperature control, cooling, and precise reagent dispensing.</li>
+                    <li>Presented and demonstrated the system in Paris; received <span class="text-white">Gold Medal</span>.</li>
+                  </ul>
+                </div>
+
+                <div>
+                  <div class="text-sm font-medium text-white">Photos</div>
+                  <div class="mt-3 grid grid-cols-2 gap-3">
+                    <img class="h-32 w-full rounded-2xl object-cover ring-1 ring-white/10" src="igem1.jpg" alt="iGEM interaction photo" loading="lazy">
+                    <img class="h-32 w-full rounded-2xl object-cover ring-1 ring-white/10" src="igem3.jpg" alt="iGEM discussion photo" loading="lazy">
+                    <img class="h-32 w-full rounded-2xl object-cover ring-1 ring-white/10" src="igem0.jpg" alt="iGEM group photo" loading="lazy">
+                    <img class="h-32 w-full rounded-2xl object-cover ring-1 ring-white/10" src="igem2.jpg" alt="iGEM team photo" loading="lazy">
+                    <img class="h-32 w-full rounded-2xl object-cover ring-1 ring-white/10 col-span-2" src="AA38EA04-7BA9-4A2D-BC84-63209EC85232.jpg" alt="Paris photo" loading="lazy">
+                  </div>
+                </div>
+              </div>
+
+              <div class="mt-6">
+                <div class="text-sm font-medium text-white">心得（中文）</div>
+                <div class="mt-2 text-sm text-zinc-200 leading-relaxed whitespace-pre-line">
+2023 iGEM 國際遺傳工程機器設計競賽 🇫🇷》
+
+📍 Paris, France
+🗓️ 10.31 – 11.11
+
+-
+57次大咪、45次小咪，無數的研究、報告、拉贊、採訪、交流，在2023年的11月第一次來到這麼遠的國家，10099公里——巴黎，依舊不敢相信一年後的今天我們帶著無數日月累積的成果來到了iGEM比賽會場，並最終獲得金牌，回過頭看這一年我們真的一起完成了很多事情..
+
+記得初次相見歡的時候，那時候的我對未來十分的迷茫，沒有像其他人一樣擁有一技之長，從一開始寒假的case study到後來二擇一的主題，接著尋找適合的教授，再到後來各組各司其職，開始尋找各式模擬軟體、找model、找文獻、建網頁、做模型、搞硬體、搞軟體，一切都恍如昨日，永遠無法忘記一個禮拜兩次的meeting、討論到凌晨的會議、修正再修正的model、一起拍promotion video 、一起去林口交流會、一起被wiki 追殺的日子、一起完成檢測早期大腸癌的研究。這一年中自己也初次嘗試了各式各樣的事情，好多的第一次，第一次當組長、第一次接觸合成生物學、第一次去校園拉票、第一次3D建模、第一次連續四天睡不到六個小時、第一次搭阿聯酋、第一次離開亞洲⋯真的真的好多的第一次，在這一年中也犧牲了學業、犧牲了練球、犧牲了暑假、犧牲了睡眠，但我卻覺得一切都很值得，能跟如此優秀的15個人一起共事，並在國際合成生物學的舞台上，與數百支來自世界各國的隊伍交流，短短一年間，不同背景的我們，16個人，拿到了Gold Medal，我真的很開心也無比自豪有一群這麼厲害的隊友！
+
+在這16人的團隊中，身為Dry lab leader（後來才知道是組內年紀最小的🤣），負責掌管DL大小事以及擔任與其他組溝通的橋樑，我們組內每個人都來自不同的學系，很感謝DL各位很包容我的想法，也會適時的給我這不成熟的組長建議，要感謝的人和事情實在太多了，忙前忙後最扛的隊長（無數次陪我到深夜甚至黎明😂）、最強最全能的學姊（完全不必多說，真的什麼都強😆）、最忙最多事的羿文（總是要被我要求一大堆工作還有被問一大堆問題🥹）、最神的梓維（人不在但心都在，我們QA時的神😭），當然還有最無敵最無解人人書卷的WL各位，以及至關重要最堅強的後盾HP，真的很開心能跟你們一起共事，一起朝向共同的目標努力，雖然比賽已經過了快一年了，但過往的回憶如今仍如夢似幻、歷歷在目…
+
+人生很長，總會遇到很多事情，也會遇到很多人，在19歲的這年，因為遇見了你們而無比精彩。
+-
+
+#8th
+                </div>
+
+                <div class="mt-4 text-sm font-medium text-white">Reflection (English)</div>
+                <div class="mt-2 text-sm text-zinc-200 leading-relaxed whitespace-pre-line">
+2023 iGEM (International Genetically Engineered Machine Competition) 🇫🇷》
+
+📍 Paris, France
+🗓️ 10.31 – 11.11
+
+-
+57 “big meows,” 45 “small meows,” countless rounds of research, reports, fundraising, interviews, and exchanges. In November 2023, I visited a country this far away for the first time—10,099 km from home: Paris. Even now, it still feels unreal that one year later, we arrived at the iGEM venue carrying the results we had built day by day, and eventually won a Gold Medal. Looking back, we truly accomplished so much together in that year.
+
+I still remember when we first met. Back then, I was lost about the future. I didn’t have a clear “special skill” like others. From the winter break case study, to selecting a topic, to finding the right professor, and then dividing into teams with different roles—searching for simulation tools, building models, reading papers, making the wiki, prototyping, doing hardware, doing software—everything feels like yesterday. I’ll never forget the twice-a-week meetings, discussions that lasted until dawn, models revised again and again, filming promotion videos together, traveling to the Linkou meetup, being chased by the wiki deadline, and completing our research on early colorectal cancer screening.
+
+That year, I tried so many things for the first time: being a team lead, touching synthetic biology, doing campus campaigning, 3D modeling, sleeping less than six hours for four consecutive days, flying Emirates, leaving Asia for the first time… so many firsts. I sacrificed coursework, basketball practice, my summer break, and sleep—yet I felt it was all worth it. Working with 15 incredible people, exchanging with hundreds of teams from around the world on the international synthetic biology stage—within just one year, 16 people from completely different backgrounds earned a Gold Medal. I was truly happy, and unbelievably proud to have such amazing teammates.
+
+In this 16-person team, I served as the Dry Lab leader (and later found out I was the youngest in the group 🤣). I handled Dry Lab tasks and acted as a bridge between subteams. Everyone came from different departments, and I’m deeply grateful that the Dry Lab members were so supportive of my ideas and gave me advice as an inexperienced leader. There are simply too many people to thank: our captain who carried everything (countless nights together until late night—or even sunrise 😂), our all-around senior (no need to explain—she’s amazing at everything 😆), Yi-Wen (always overloaded with tasks and my endless questions 🥹), Zi-Wei (not always present, but always there for us—our QA hero 😭), the unstoppable WL team, and our crucial backbone HP. I’m so glad we worked together toward a shared goal. Even though it has been almost a year since the competition, the memories still feel dreamlike and vivid.
+
+Life is long. We will meet many things and many people. At 19, because I met you all, my life became incredibly bright.
+-
+
+#8th
+                </div>
+              </div>
+            </div>
+          </details>
         </div>
       </div>
     </div>
@@ -308,6 +708,17 @@
             Chi-Wei Lee, Yen-Hung Hsueh, JR An Guo, Jia-Wei Liao, Pin-Yen Chiu, Jun-Cheng Chen.
           </div>
         </div>
+
+        <div class="rounded-2xl p-5 bg-white/5 ring-1 ring-white/10">
+          <div class="font-semibold">Scholarly Reviewing / Endorsement (2024–2025)</div>
+          <div class="mt-1 text-zinc-200 text-sm leading-relaxed">
+            Endorser, <span class="italic">Building Machine Learning Challenges for Anomaly Detection in Science</span> (Nature Communications, forthcoming 2025; arXiv:2503.02112).
+            Provided detailed feedback on benchmark positioning, baselines, metrics, and clarity.
+          </div>
+          <div class="mt-3 text-xs text-zinc-400">
+            Related: Full paper for MatrixQR is currently in preparation (targeting venues such as ECCV 2026).
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -332,6 +743,11 @@
           <div class="rounded-2xl p-4 bg-white/5 ring-1 ring-white/10">
             <div class="font-semibold">Mei-Chu Hackathon 2025 (Maker Track) — 1st Place</div>
             <div class="text-zinc-300">Wearable + app trajectory modeling for safety monitoring</div>
+          </div>
+
+          <div class="rounded-2xl p-4 bg-white/5 ring-1 ring-white/10">
+            <div class="font-semibold">NSF HDR ML Challenge 2026 (Climate Prediction Track) — 3rd Place (Taiwan Region)</div>
+            <div class="text-zinc-300">Attention-based models · drought prediction · OOD generalization focus</div>
           </div>
 
           <div class="rounded-2xl p-4 bg-white/5 ring-1 ring-white/10">
@@ -375,7 +791,7 @@
         <a class="rounded-xl px-4 py-2 glass ring-soft hover:bg-white/10" href="tel:+886968708385">
           Call
         </a>
-        <a class="rounded-xl px-4 py-2 glass ring-soft hover:bg-white/10" href="#" target="_blank" rel="noreferrer">
+        <a class="rounded-xl px-4 py-2 glass ring-soft hover:bg-white/10" href="https://github.com/Arthur031221" target="_blank" rel="noreferrer">
           GitHub
         </a>
         <a class="rounded-xl px-4 py-2 glass ring-soft hover:bg-white/10" href="#" target="_blank" rel="noreferrer">
